@@ -1,0 +1,39 @@
+.gs-content-container {
+    width: calc(100vw - 280px);
+    padding: 60px 80px;
+}
+
+.gs-content-container > h2 {
+    color: #000;
+    text-shadow: 1px 1px rgba(0,0,0,.25);
+}
+
+.gs-games-list {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(280px, 1fr) );
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .gs-content-container {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .gs-content-container {
+        padding: 60px 10px;
+    }
+
+    .gs-games-list {
+        grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .gs-games-list {
+        grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    }
+}

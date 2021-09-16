@@ -1,0 +1,36 @@
+.gs-pagination {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.gs-pagination ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gs-pagination-item {
+    padding: 3px 12px;
+    background-color: #3F213A;
+    border: 1px solid #000;
+    color: #fff;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,.25);
+}
+
+.gs-pagination-item:hover {
+    background-color: #DCB3D5;
+    color: #000;
+}
+
+.gs-pagination-item.item-active {
+    background-color: #DCB3D5;
+    color: #000;
+}
+
+.gs-pagination-item.item-disabled{
+    display: none;
+}
