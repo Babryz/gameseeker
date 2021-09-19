@@ -40,8 +40,6 @@ const SingleGame = () => {
 
     return (
         <div className="gs-single-container">
-            
-            {console.log(game)}
             <div className="gs-single-content">
                 <div className="gs-single-banner" style={{backgroundImage: 'url(' + game.background_image + ')'}}></div>
                 <div className="gs-single-content-top">
@@ -126,7 +124,7 @@ const SingleGame = () => {
                             }
                         </div>
                     </div>
-                    : console.log('we got no more games')
+                    : null
                 }
             </div>
         </div>
