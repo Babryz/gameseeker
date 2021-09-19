@@ -1,4 +1,3 @@
-import { act } from "react-dom/test-utils"
 import { combineReducers } from "redux"
 
 const navbarStatusReducer = (state = 'initial', action) => {
