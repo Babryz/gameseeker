@@ -118,7 +118,7 @@
         font-size: 28px;
     }
 
-    .gs-single-text {
+    .gs-single-text, .gs-single-game-details {
         padding: 10px;
     }
 }
