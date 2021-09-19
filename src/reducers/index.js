@@ -1,3 +1,4 @@
+import { act } from "react-dom/test-utils"
 import { combineReducers } from "redux"
 
 const navbarStatusReducer = (state = 'initial', action) => {
@@ -94,6 +95,17 @@ const searchtermReducer = (state = "portal", action) => {
   }
 }
 
+const gameReducer = (state = {}, action) => {
+  switch(action.type) {
+    case "SET_GAME": 
+      return action.payload
+    case "UNSET_GAME":
+      return {}
+    default:
+      return state
+  }
+}
+
 // Combine all reducers before sending to store.
 const combinedReducers = combineReducers({
     navbarStatus: navbarStatusReducer,
@@ -103,7 +115,8 @@ const combinedReducers = combineReducers({
     page: paginationReducer,
     genreStatus: genreStatusReducer,
     selectedGenre: selectedGenreReducer,
-    searchterm: searchtermReducer
+    searchterm: searchtermReducer,
+    game: gameReducer,
 })
 
 export default combinedReducers;
