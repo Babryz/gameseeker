@@ -89,6 +89,18 @@ const ACTIONS = {
         UNSET_TERM: {
             type: "UNSET_TERM"
         }
+    },
+    GAME: {
+        SET_GAME(data) {
+            const SET_GAME = {
+                type: "SET_GAME",
+                payload: data
+            }
+            return SET_GAME
+        },
+        UNSET_GAME: {
+            type: "UNSET_GAME"
+        }
     }
 
 }

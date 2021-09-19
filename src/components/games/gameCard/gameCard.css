@@ -20,6 +20,10 @@
     padding: 20px 30px;
     text-align: center;
     color: #FFF3FD;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(100% - 200px);
 }
 
 .gs-game-heading {
@@ -42,8 +46,23 @@
     text-align: left;
 }
 
+.gs-game-card-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
 .gs-game-view-details {
-    margin-left: auto;
+    display: block;
+    padding: 0;
+}
+
+.gs-game-view-details.btn a {
+    text-decoration: none;
+    color: inherit;
+    height: 32px;
+    padding: 8px;
     display: block;
 }
 
@@ -101,10 +120,6 @@
     overflow-x: hidden;
     position: absolute;
     top: 0;
-}
-
-.gs-game-rating-stars.stars-filled svg {
-    
 }
 
 .gs-game-rating-text {

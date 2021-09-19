@@ -1,6 +1,19 @@
 import './gameCard.css'
+import { Link } from 'react-router-dom'
 
 const GameCard = (gameObj) => {
+    const smoothScroll = () => {
+        let target = document.querySelector('.gs-single-container')
+
+        if(!target) {
+            return 
+        }
+
+        target.scrollIntoView({
+            behavior: 'smooth'
+        })
+    }
+
     let game = gameObj.game
     if (game) {
         return (
@@ -9,18 +22,19 @@ const GameCard = (gameObj) => {
                     {game.background_image ? <img src={game.background_image} alt="Gamecover" /> : <span>No picture found</span>}
                 </div>
                 <div className="gs-game-card-content">
-                    <h3 className="gs-game-heading">{game.name}</h3>
-                    <div className="gs-game-tags">
-                        {game.genres.map((genre, i) => {
-                            return <span key={i}>{genre.name}</span>
-                        })}
-                    </div>
-                    <div 
-                        className="gs-game-description"> 
-                            {/* Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text 
-                            ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived 
-                            not only five centuries, but also the leap into electronic... */}
-                        <div className="gs-game-rating-wrapper">
+                    <div className="gs-game-card-top">
+                        <h4 className="gs-game-heading">{game.name}</h4>
+                        <div className="gs-game-tags">
+                            {game.genres.map((genre, i) => {
+                                return <span key={i}>{genre.name}</span>
+                            })}
+                        </div>
+                        <div 
+                            className="gs-game-description"> 
+                                {/* Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text 
+                                ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived 
+                                not only five centuries, but also the leap into electronic... */}
+                            <div className="gs-game-rating-wrapper">
                             <div className="gs-game-rating">
                                 <div className="gs-game-rating-stars">
                                     <svg 
@@ -159,8 +173,11 @@ const GameCard = (gameObj) => {
                             </div>
                             <span className="gs-game-rating-text">{game.ratings_count} ratings</span>
                         </div>
+                        </div>
                     </div>
-                    <button className="gs-game-view-details btn">View Details</button>
+                    <div className="gs-game-card-bottom">
+                        <button onClick={() => smoothScroll()} className="gs-game-view-details btn"><Link to={`/game/${game.id}`}>View Details</Link></button>
+                    </div>
                 </div>
             </div>
         )

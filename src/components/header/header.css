@@ -36,6 +36,32 @@ header.gs-header {
     border: none;
 }
 
+.gs-go-to-home span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gs-go-to-home a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 150ms ease-in-out;
+}
+
+.gs-go-to-home:hover a {
+    color: #DCB3D5;
+}
+
+.gs-go-to-home:hover svg {
+    color: #DCB3D5;
+}
+
+.gs-go-back-chevron {
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+}
+
 @media screen and (max-width: 768px) {
     .gs-search {
         display: none;
@@ -70,5 +96,11 @@ header.gs-header {
         opacity: 1;
         transform: scaleY(1);
         position: relative;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    header.gs-header {
+        padding: 10px;
     }
 }

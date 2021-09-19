@@ -4,18 +4,33 @@ import './App.css';
 import Header from './components/header/header'
 import Sidebar from './components/sidebar/sidebar'
 import Games from './components/games/games'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import SingleGame from './components/singleGame/singleGame';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main className="gs-main-wrapper">
-        <div className="gs-bg-overlay">
-          <Sidebar />
-          <Games />
-        </div>
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="gs-main-wrapper">
+          <div className="gs-bg-overlay">
+            <Switch>
+              <Route path="/game/:id">
+                <SingleGame />
+              </Route>
+              <Route path="/">
+                <Sidebar />
+                <Games />
+              </Route>
+            </Switch>
+          </div>
+        </main>
+      </div>
+    </Router>
   );
 }
 
