@@ -14,12 +14,24 @@ const GameCard = (gameObj) => {
         })
     }
 
+    const setGameImg = (game) => {
+        let mature = game.tags.filter(tag => tag.id === 50)
+        if(mature.length > 0) {
+            return <span>Warning: Mature content</span>
+        } else if (game.background_image) {
+            return <img src={game.background_image} alt="Gamecover" />
+        } else {
+            return <span>No picture found</span>
+        }
+    }
+
     let game = gameObj.game
+
     if (game) {
         return (
             <div className="gs-game-card">
                 <div className="gs-game-cover">
-                    {game.background_image ? <img src={game.background_image} alt="Gamecover" /> : <span>No picture found</span>}
+                    {setGameImg(game)}
                 </div>
                 <div className="gs-game-card-content">
                     <div className="gs-game-card-top">
