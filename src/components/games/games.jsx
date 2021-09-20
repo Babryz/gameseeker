@@ -51,6 +51,27 @@ const Games = () => {
         }
     }
 
+    const renderGames = () => {
+        if(games.count === 0) {
+            return <span className="gs-no-games-found">Try a different searchterm</span>
+        } else if(games.results && games.results.length > 0) {
+            let gamesArr = []
+            for(let i = 0; i < games.results.length; i++) {
+                gamesArr.push(<GameCard key={i} game={games.results[i]}/>)
+            }
+
+            return gamesArr
+        } else {
+            let loadingArr = [0,1,2,3,4,5,6,7,8,9, 10, 11]
+            let gamesArr = []
+            for(let i = 0; i < loadingArr.length; i++) {
+                gamesArr.push(<GameCard key={i}/>)
+            }
+
+            return gamesArr
+        }
+    }
+
     useEffect(() => {
         getGames()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,15 +81,7 @@ const Games = () => {
         <div className="gs-content-container" id="gs-games-container">
             <h2>{setGamesHeading()}</h2>
             <div className="gs-games-list">
-                {
-                games.results && games.results.length > 0 ? 
-                games.results.map((game, i) => {
-                    return <GameCard key={i} game={game} />
-                }) :
-                [0,1,2,3,4,5,6,7,8,9, 10, 11].map((num, i) => {
-                    return <GameCard key={i} />
-                })
-                }
+                {renderGames()}
             </div>
             <Pagination />
         </div>
